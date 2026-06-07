@@ -5,9 +5,10 @@ interface Props {
 }
 
 const severityConfig: Record<string, { color: string; bg: string; label: string }> = {
-  high:   { color: 'var(--accent-red)',    bg: 'rgba(245,77,77,.08)',   label: 'Alta'  },
-  medium: { color: 'var(--accent-yellow)', bg: 'rgba(245,200,66,.08)',  label: 'Media' },
-  low:    { color: 'var(--accent-blue)',   bg: 'rgba(77,140,245,.08)',  label: 'Baja'  },
+  high:        { color: 'var(--accent-red)',    bg: 'rgba(245,77,77,.08)',    label: 'Urgente'     },
+  medium:      { color: 'var(--accent-yellow)', bg: 'rgba(245,200,66,.08)',   label: 'Atención'    },
+  low:         { color: 'var(--accent-blue)',   bg: 'rgba(77,140,245,.08)',   label: 'Info'        },
+  opportunity: { color: 'var(--accent-teal)',   bg: 'rgba(0,200,150,.08)',    label: 'Oportunidad' },
 }
 
 export default function Alerts({ alerts }: Props) {

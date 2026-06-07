@@ -152,9 +152,10 @@ body {
   letter-spacing: .04em;
   text-transform: uppercase;
 }
-.badge-medium { background: rgba(245,200,66,.15); color: var(--accent-yellow); border: 1px solid rgba(245,200,66,.3); }
-.badge-low    { background: rgba(77,140,245,.15);  color: var(--accent-blue);   border: 1px solid rgba(77,140,245,.3); }
-.badge-high   { background: rgba(245,77,77,.15);   color: var(--accent-red);    border: 1px solid rgba(245,77,77,.3); }
+.badge-medium      { background: rgba(245,200,66,.15); color: var(--accent-yellow); border: 1px solid rgba(245,200,66,.3); }
+.badge-low         { background: rgba(77,140,245,.15);  color: var(--accent-blue);   border: 1px solid rgba(77,140,245,.3); }
+.badge-high        { background: rgba(245,77,77,.15);   color: var(--accent-red);    border: 1px solid rgba(245,77,77,.3); }
+.badge-opportunity { background: rgba(0,200,150,.15);   color: var(--accent-teal);   border: 1px solid rgba(0,200,150,.3); }
 
 /* ── LOADING ──────────────────────────────── */
 .loading-screen {

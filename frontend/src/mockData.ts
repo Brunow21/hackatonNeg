@@ -33,8 +33,10 @@ const candeDashboard: DashboardData = {
     { merchant: "McDonald's",        amount: 13000, category: 'Comida',        transactions: 8  },
   ],
   alerts: [
-    { alert_id: 'cande_a1', type: 'emergency_fund_low',  severity: 'high',   title: 'Fondo de emergencia inexistente',  message: 'Solo tenés $15.000 disponibles. Lo mínimo recomendado es 3 meses de gastos. Cualquier imprevisto puede generarte deuda.', action: 'Ver cómo empezar' },
-    { alert_id: 'cande_a2', type: 'subscription_overload', severity: 'medium', title: 'Suscripciones al límite', message: 'Gastás $35.000/mes en suscripciones — el 21% de tus ingresos. Revisá cuáles realmente usás.', action: 'Ver desglose' },
+    { alert_id: 'cande_a1', type: 'emergency_fund_low',     severity: 'high',        title: 'Fondo de emergencia inexistente',    message: 'Solo tenés $15.000 disponibles. Lo mínimo recomendado es 3 meses de gastos. Cualquier imprevisto puede generarte deuda.', action: 'Ver cómo empezar' },
+    { alert_id: 'cande_a2', type: 'burn_rate_high',          severity: 'high',        title: 'Burn rate acelerado',                 message: 'Gastaste $150.000 en los primeros 18 días del mes — el 91% de tu ingreso. Al ritmo actual, entrarás en rojo antes de fin de mes.', action: 'Ver detalle de gastos' },
+    { alert_id: 'cande_a3', type: 'unidentified_recurring',  severity: 'medium',      title: 'Cargo recurrente no identificado',    message: 'Detectamos 3 débitos automáticos por $18.000 que se repiten mensualmente y no están clasificados en tu presupuesto. ¿Los tenés en cuenta?', action: 'Revisar débitos' },
+    { alert_id: 'cande_a4', type: 'savings_goal_reached',    severity: 'opportunity', title: 'Meta de ahorro al alcance',           message: 'Separando $18.000/mes (solo el 10% de tu sueldo), en 6 meses tenés tu primer fondo de emergencia. Es más cerca de lo que parece.', action: 'Empezar hoy' },
   ],
   recommendation: {
     title: 'Empezá a ahorrar desde hoy',
@@ -83,8 +85,10 @@ const francoDashboard: DashboardData = {
     { merchant: 'Restaurantes varios', amount: 132000, category: 'Gastronomía',   transactions: 14 },
   ],
   alerts: [
-    { alert_id: 'franco_a1', type: 'retirement_planning', severity: 'medium', title: 'Oportunidad de planificación para el retiro', message: 'A ~12 años del retiro estimado, es el momento ideal para diversificar hacia instrumentos de largo plazo y maximizar el capital acumulado.', action: 'Ver opciones de inversión' },
-    { alert_id: 'franco_a2', type: 'healthcare_review',   severity: 'low',    title: 'Gasto en salud: 18% del total', message: 'Tu prepaga representa $198.000 mensuales. Comparar planes alternativos podría liberar capital para inversión.', action: 'Revisar cobertura' },
+    { alert_id: 'franco_a1', type: 'retirement_planning',    severity: 'medium',      title: 'Oportunidad de planificación para el retiro', message: 'A ~12 años del retiro estimado, es el momento ideal para diversificar hacia instrumentos de largo plazo y maximizar el capital acumulado.', action: 'Ver opciones de inversión' },
+    { alert_id: 'franco_a2', type: 'monthly_surplus_proposal', severity: 'opportunity', title: 'Propuesta para el excedente del mes',          message: 'Te sobraron $700.000 este mes. Moviéndolos a un plazo fijo de 30 días generarías ~$57.500 de rendimiento antes de que el capital quede inactivo en cuenta corriente.', action: 'Simular rendimiento' },
+    { alert_id: 'franco_a3', type: 'fixed_term_maturity',    severity: 'medium',      title: 'Plazo fijo vence en 5 días',                  message: 'Tu plazo fijo de $500.000 vence el 11 de junio. Decidí si renovarlo automáticamente o reasignar el capital antes de que quede sin rendir en caja de ahorro.', action: 'Decidir renovación' },
+    { alert_id: 'franco_a4', type: 'savings_goal_reached',   severity: 'opportunity', title: 'En camino hacia el objetivo de retiro',       message: 'Al ritmo actual acumulás $8.400.000 en los próximos 12 meses. Estás exactamente en línea con tu objetivo de retiro proyectado. Mantené el rumbo.', action: 'Ver proyección' },
   ],
   recommendation: {
     title: 'Maximizá tu capital para el retiro',
@@ -133,8 +137,10 @@ const cataDashboard: DashboardData = {
     { merchant: 'YPF / Shell',       amount: 40000,  category: 'Transporte',    transactions: 5 },
   ],
   alerts: [
-    { alert_id: 'cata_a1', type: 'education_cost_planning', severity: 'medium', title: 'Cuotas escolares: 22% del presupuesto', message: 'La educación es tu segundo gasto más alto. Planificar el ciclo lectivo con anticipación te ayuda a distribuir el impacto.', action: 'Ver planificación educativa' },
-    { alert_id: 'cata_a2', type: 'savings_below_target',    severity: 'medium', title: 'Ahorro por debajo del objetivo familiar', message: 'Tu tasa de ahorro del 9.2% está por debajo del 15% recomendado para familias. Pequeños ajustes en supermercados pueden acercar ese número.', action: 'Ver oportunidades' },
+    { alert_id: 'cata_a1', type: 'burn_rate_high',           severity: 'high',        title: 'Burn rate acelerado',                    message: 'Gastaste $520.000 en los primeros 22 días del mes — el 88% de tu ingreso. Quedan aproximadamente $130.000 para los próximos 8 días.', action: 'Ver desglose' },
+    { alert_id: 'cata_a2', type: 'education_cost_planning',  severity: 'medium',      title: 'Cuotas escolares: 22% del presupuesto', message: 'La educación es tu segundo gasto más alto. Planificar el ciclo lectivo con anticipación (matrícula, útiles, actividades extracurriculares) te ayuda a distribuir el impacto.', action: 'Ver planificación educativa' },
+    { alert_id: 'cata_a3', type: 'unidentified_recurring',   severity: 'medium',      title: 'Débitos fijos de alto impacto',          message: 'Cuota escolar ($129.800) + OSDE familiar ($106.200) = $236.000/mes en débitos automáticos. Son el 40% de tu presupuesto — planificarlos con anticipo evita sorpresas de liquidez.', action: 'Ver calendario de pagos' },
+    { alert_id: 'cata_a4', type: 'savings_goal_reached',     severity: 'opportunity', title: 'Meta de ahorro familiar al alcance',     message: 'Reduciendo el gasto en supermercados un 5% (~$9.400/mes) alcanzarías el 15% de ahorro recomendado para familias en menos de 3 meses.', action: 'Ver cómo lograrlo' },
   ],
   recommendation: {
     title: 'Protegé los gastos de tu familia',
