@@ -1,0 +1,45 @@
+export const martina = {
+  name: 'Martina',
+  profile: 'Diseñadora UX freelance',
+  totalBalanceARS: 1420000,
+  balances: {
+    ARS: 320000,
+    USDC: 850,
+    USD: 120,
+    EUR: 0,
+    BRL: 0,
+  },
+  monthlyIncomeARS: 1250000,
+  monthlyExpensesARS: 710000,
+  estimatedSavingCapacityARS: 280000,
+  upcomingExpensesARS: 85000,
+  extraIncomeARS: 95000,
+  lastInternationalIncome: {
+    amount: 850,
+    currency: 'USDC',
+    source: 'Payoneer',
+  },
+  nextExpectedIncome: 'en 12 días',
+  liquidityNeed: 'Alta',
+  productsAvailable: [
+    'recibir dinero del exterior',
+    'cambio de moneda',
+    'saldo disponible',
+    'rendimiento diario',
+    'tarjeta internacional',
+    'pago de servicios',
+    'Pix Brasil',
+    'transferir a cuenta local',
+  ],
+}
+
+export const BELO_CHAT_RESPONSES: Record<string, string> = {
+  usdc: 'Tenés 850 USDC de tu cobro desde Payoneer. Una opción prudente sería no convertirlos todos de una vez. Podés convertir solo lo que necesitás para tus gastos próximos en pesos, mantener una parte disponible en USDC y separar otra en rendimiento diario si no los vas a usar pronto.',
+  convertir: 'Con gastos próximos por $85.000 y saldo en pesos de $320.000, convertir solo lo necesario para cubrir esos gastos es la opción más prudente. No hace falta convertir toda la posición USDC si los gastos pueden cubrirse con el saldo ARS actual.',
+  disponible: 'Considerando tus gastos próximos de $85.000, conviene mantener al menos ese monto disponible más un colchón. $70.000 adicionales disponibles te dan margen para imprevistos antes de que entre el próximo pago del exterior.',
+  rendimiento: 'El rendimiento diario puede ser una buena opción para la parte del saldo que no vas a necesitar en los próximos días. Con $120.000 en rendimiento diario seguís teniendo acceso rápido al capital si surge algo, y ese saldo puede seguir trabajando mientras tanto.',
+  servicios: 'Antes de mover cualquier saldo, reservá lo necesario para servicios y suscripciones. Con los pagos próximos ya reservados, podés tomar decisiones con más tranquilidad sobre el resto.',
+  brasil: 'Si viajás a Brasil, podés reservar parte del saldo para pagos con Pix. Revisar los tipos de cambio disponibles en la wallet antes de decidir qué moneda usar para el viaje puede ayudarte a optimizar el gasto.',
+  tarjeta: 'La tarjeta internacional conviene usarla para gastos en moneda extranjera o cuando viajás. Para gastos locales en pesos, usar el saldo ARS directo suele ser más eficiente en términos de conversión.',
+  default: 'Podés preguntarme sobre qué hacer con los USDC que recibiste, cuánto conviene convertir a pesos, cuánta plata dejar disponible, si conviene usar rendimiento diario, cómo manejar los pagos de servicios, o qué considerar si viajás a Brasil.',
+}
