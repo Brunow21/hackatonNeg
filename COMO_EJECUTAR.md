@@ -1,12 +1,27 @@
 # VirtualFinance — Instrucciones de ejecución
 
-## Requisitos previos
+## Opción A — Docker (recomendado para el jurado)
+
+Solo necesitás tener **Docker Desktop** instalado.
+
+```bash
+docker compose up --build
+```
+
+- Dashboard: **http://localhost**
+- API / Swagger: **http://localhost:8000/docs**
+
+Para detener: `docker compose down`
+
+---
+
+## Opción B — ejecución local
+
+### Requisitos previos
 
 - Python 3.10+
 - Node.js 18+
 - npm
-
-No se requiere Docker, PostgreSQL ni ninguna instalación externa.
 
 ---
 
