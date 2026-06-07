@@ -52,3 +52,7 @@ def get_simulator_defaults_for(user_id: str) -> dict:
 
 def get_demo_available_products() -> list:
     return DEMO_AVAILABLE_PRODUCTS
+
+
+def get_demo_dashboard() -> dict:
+    return DEMO_DASHBOARD

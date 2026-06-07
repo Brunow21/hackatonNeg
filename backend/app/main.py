@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine
 from app import models
-from app.routers import health, financial_data, dashboard, simulator
+from app.routers import health, financial_data, dashboard, simulator, agent
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -25,3 +25,4 @@ app.include_router(health.router)
 app.include_router(financial_data.router)
 app.include_router(dashboard.router)
 app.include_router(simulator.router)
+app.include_router(agent.router)

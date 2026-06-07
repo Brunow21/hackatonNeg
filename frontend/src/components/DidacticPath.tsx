@@ -1,27 +1,27 @@
 const STEPS = [
   {
     number: '01',
-    icon: '🔌',
-    title: 'Conectás tu app',
-    desc: 'Una sola llamada a la API con los datos financieros de tu usuario. Sin migraciones, sin setup complejo, sin infraestructura externa.',
+    icon: '',
+    title: 'El agente analiza los datos',
+    desc: 'Con una sola llamada a la API, el agente procesa ingresos, gastos, patrones y saldo disponible. Sin acceso a datos personales sensibles.',
   },
   {
     number: '02',
-    icon: '🗄️',
-    title: 'Estructuramos los datos',
-    desc: 'Organizamos transacciones, categorizamos gastos y construimos el perfil financiero completo. Tu base de datos se vuelve un activo estratégico.',
+    icon: '',
+    title: 'Detecta patrones relevantes',
+    desc: 'Identifica ratio de gastos, capacidad de ahorro, necesidad de liquidez y suscripciones recurrentes. Todo de forma determinística y auditable.',
   },
   {
     number: '03',
-    icon: '💡',
-    title: 'Tus usuarios ven insights',
-    desc: 'El dashboard embebible muestra a tus clientes su situación financiera de forma clara. Conceptos complejos, lenguaje simple.',
+    icon: '',
+    title: 'Genera una recomendación con evidencia',
+    desc: 'Propone el próximo mejor movimiento financiero con justificación clara, monto sugerido y los datos que usó para decidir. Sin frases de asesoramiento directo.',
   },
   {
     number: '04',
-    icon: '📈',
-    title: 'Tu fintech crece',
-    desc: 'Usuarios más informados contratan más productos. Generás nuevas fuentes de ingresos y cumplís con las regulaciones — sin esfuerzo adicional.',
+    icon: '',
+    title: 'Guía al usuario hacia el próximo paso',
+    desc: 'El usuario ve la recomendación, puede preguntar por qué, explorar el chat educativo y actuar dentro de tu fintech — todo en el mismo flujo.',
   },
 ]
 

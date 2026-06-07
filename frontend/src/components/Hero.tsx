@@ -2,21 +2,20 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="container">
-        <div className="hero-badge">Infraestructura Financiera B2B · White-label · Argentina</div>
+        <div className="hero-badge">AI Financial Coach · B2B White-label · Argentina</div>
 
         <h1 className="hero-title">
-          La base de datos financiera<br />
-          <span className="hero-gradient">que tu fintech necesita</span>
+          El agente financiero que<br />
+          <span className="hero-gradient">entiende los datos de tus usuarios</span>
         </h1>
 
         <p className="hero-desc">
-          Estructuramos y analizamos los datos de tus usuarios.
-          Tu equipo cumple regulaciones, tus clientes entienden sus finanzas
-          y tu empresa genera nuevas fuentes de ingresos — sin desarrollo interno.
+          Explicaciones simples, transparencia total, próximos pasos seguros —
+          dentro de tu fintech. Sin desarrollo interno, sin infraestructura externa.
         </p>
 
         <div className="hero-actions">
-          <a href="#dashboard" className="btn-primary">Ver demo en vivo</a>
+          <a href="#dashboard" className="btn-primary">Ver demo del agente</a>
           <a href="#revenue" className="btn-secondary">Ver modelo de ingresos →</a>
         </div>
 
@@ -34,17 +33,17 @@ export default function Hero() {
             <span className="stat-label">Setup externo</span>
           </div>
           <div className="stat">
-            <span className="stat-val">11</span>
+            <span className="stat-val">14</span>
             <span className="stat-label">Endpoints listos</span>
           </div>
         </div>
 
         <div className="trust-badges">
+          <span className="trust-badge">✓ Análisis determinístico</span>
+          <span className="trust-badge">✓ Sin PII expuesta a la LLM</span>
+          <span className="trust-badge">✓ Guardrails regulatorios</span>
           <span className="trust-badge">✓ BCRA compatible</span>
-          <span className="trust-badge">✓ ISO 27001 ready</span>
           <span className="trust-badge">✓ Ley 25.326</span>
-          <span className="trust-badge">✓ White-label</span>
-          <span className="trust-badge">✓ Sin infraestructura externa</span>
         </div>
       </div>
     </section>
