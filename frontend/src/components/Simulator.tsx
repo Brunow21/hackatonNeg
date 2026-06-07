@@ -4,6 +4,7 @@ import type { SimulatorInput, SimulatorOutput, SimulatorDefaults } from '../api'
 
 interface Props {
   defaults: SimulatorDefaults
+  userId: string
 }
 
 const fmt = (n: number) =>
@@ -14,7 +15,7 @@ const fmt = (n: number) =>
     maximumFractionDigits: 0,
   }).format(n)
 
-export default function Simulator({ defaults }: Props) {
+export default function Simulator({ defaults, userId }: Props) {
   const [input, setInput] = useState<SimulatorInput>({
     available_amount: defaults.available_amount,
     liquidity_need: defaults.liquidity_need as SimulatorInput['liquidity_need'],
@@ -29,7 +30,7 @@ export default function Simulator({ defaults }: Props) {
     setLoading(true)
     setError(null)
     try {
-      const output = await dashboardApi.simulate('demo', input)
+      const output = await dashboardApi.simulate(userId, input)
       setResult(output)
     } catch {
       setError('No se pudo conectar al backend. Iniciá el servidor con uvicorn para usar el simulador.')

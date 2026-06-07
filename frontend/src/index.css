@@ -798,3 +798,104 @@ body {
   color: var(--text-secondary);
   line-height: 1.6;
 }
+
+/* ── PROFILE SELECTOR ─────────────────────── */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .profiles-grid { grid-template-columns: 1fr; }
+}
+
+.profile-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+.profile-card--active {
+  background: var(--bg-card-hover);
+}
+
+.profile-card-avatar {
+  width: 100%;
+  padding: 20px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+}
+
+.profile-card-body {
+  padding: 0 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.profile-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.profile-card-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.profile-card-health {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.profile-card-age {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.profile-card-detail {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.profile-card-income {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.profile-card-active-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}

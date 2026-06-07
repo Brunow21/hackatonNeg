@@ -1,4 +1,4 @@
-import { mockDashboard } from './mockData'
+import { mockDashboards } from './mockData'
 
 export interface Summary {
   income: number
@@ -113,7 +113,7 @@ export const dashboardApi = {
       return res.json()
     } catch (e) {
       console.warn('[VirtualFinance] Backend no disponible, usando datos mock:', e)
-      return mockDashboard
+      return mockDashboards[userId] ?? mockDashboards['cande']
     }
   },
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { dashboardApi } from './api'
 import type { DashboardData } from './api'
 import Header from './components/Header'
@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import ValueProps from './components/ValueProps'
 import RevenueModel from './components/RevenueModel'
 import Compliance from './components/Compliance'
+import ProfileSelector from './components/ProfileSelector'
 import KPICards from './components/KPICards'
 import CashFlow from './components/CashFlow'
 import SpendingHabits from './components/SpendingHabits'
@@ -17,17 +18,32 @@ import EducationalCards from './components/EducationalCards'
 import DidacticPath from './components/DidacticPath'
 import Endpoints from './components/Endpoints'
 
+const PROFILE_LABELS: Record<string, string> = {
+  cande:  'Cande · 20 años · Primera experiencia laboral',
+  franco: 'Franco · 53 años · Ejecutivo senior',
+  cata:   'Cata · Madre clase media',
+}
+
 export default function App() {
+  const [selectedUserId, setSelectedUserId] = useState('cande')
   const [dashboard, setDashboard] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [switching, setSwitching] = useState(false)
+  const isFirstLoad = useRef(true)
 
   useEffect(() => {
+    if (!isFirstLoad.current) setSwitching(true)
+
     dashboardApi
-      .getDashboard('demo')
+      .getDashboard(selectedUserId)
       .then(setDashboard)
       .catch(console.error)
-      .finally(() => setLoading(false))
-  }, [])
+      .finally(() => {
+        setLoading(false)
+        setSwitching(false)
+        isFirstLoad.current = false
+      })
+  }, [selectedUserId])
 
   if (loading) {
     return (
@@ -48,26 +64,23 @@ export default function App() {
       <main className="main-content">
         <div className="container">
 
-          {/* ── Propuesta de valor ─────────────────── */}
           <ValueProps />
-
-          {/* ── Modelo de ingresos ─────────────────── */}
           <RevenueModel />
-
-          {/* ── Cumplimiento regulatorio ───────────── */}
           <Compliance />
 
-          {/* ── Divisor de sección ─────────────────── */}
           <div className="section-divider">
             <div className="section-divider-line" />
             <span className="section-divider-label">Dashboard embebible — demo en vivo</span>
             <div className="section-divider-line" />
           </div>
 
-          {/* ── Encabezado del dashboard ───────────── */}
+          {/* ── Selector de perfiles ───────────────── */}
+          <ProfileSelector selected={selectedUserId} onSelect={setSelectedUserId} />
+
+          {/* ── Encabezado del perfil activo ────────── */}
           <section id="dashboard" style={{ marginBottom: 24 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
-              <h2 className="section-heading">Así ven tus clientes sus finanzas</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
+              <h2 className="section-heading">Así ve sus finanzas</h2>
               <span
                 style={{
                   padding: '4px 12px',
@@ -84,37 +97,43 @@ export default function App() {
               </span>
             </div>
             <p className="section-subtitle">
-              Dashboard embebible · Período: {dashboard.summary.period} ·{' '}
+              {PROFILE_LABELS[selectedUserId]} · Período: {dashboard.summary.period} ·{' '}
               El usuario ve sus finanzas, tu fintech ve oportunidades de negocio
             </p>
           </section>
 
-          <KPICards summary={dashboard.summary} />
+          {/* ── Contenido del dashboard (se dimea al cambiar) */}
+          <div
+            style={{
+              opacity: switching ? 0.4 : 1,
+              transition: 'opacity .25s ease',
+              pointerEvents: switching ? 'none' : 'auto',
+            }}
+          >
+            <KPICards summary={dashboard.summary} />
 
-          <div style={{ marginBottom: 24 }}>
-            <div className="grid-2">
-              <CashFlow data={dashboard.cash_flow} />
-              <SpendingHabits data={dashboard.category_breakdown} />
+            <div style={{ marginBottom: 24 }}>
+              <div className="grid-2">
+                <CashFlow data={dashboard.cash_flow} />
+                <SpendingHabits data={dashboard.category_breakdown} />
+              </div>
             </div>
+
+            <div style={{ marginBottom: 24 }}>
+              <div className="grid-2">
+                <TopMerchants data={dashboard.top_merchants} />
+                <Alerts alerts={dashboard.alerts} />
+              </div>
+            </div>
+
+            <Recommendation data={dashboard.recommendation} />
+
+            <Simulator defaults={dashboard.simulator_defaults} userId={selectedUserId} />
+
+            <EducationalCards cards={dashboard.educational_cards} />
           </div>
 
-          <div style={{ marginBottom: 24 }}>
-            <div className="grid-2">
-              <TopMerchants data={dashboard.top_merchants} />
-              <Alerts alerts={dashboard.alerts} />
-            </div>
-          </div>
-
-          <Recommendation data={dashboard.recommendation} />
-
-          <Simulator defaults={dashboard.simulator_defaults} />
-
-          <EducationalCards cards={dashboard.educational_cards} />
-
-          {/* ── Cómo funciona ──────────────────────── */}
           <DidacticPath />
-
-          {/* ── Endpoints con valor de negocio ─────── */}
           <Endpoints />
 
         </div>
