@@ -1056,3 +1056,76 @@ body {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
 }
+
+/* ── INVESTMENT STREAK CARD ───────────────── */
+.streak-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 20px 0 16px;
+}
+
+@media (max-width: 900px) {
+  .streak-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .streak-grid { grid-template-columns: 1fr; }
+}
+
+.streak-metric {
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.streak-metric-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+}
+
+.streak-metric-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.streak-metric-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.streak-progress {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.streak-progress-fill {
+  height: 100%;
+  background: var(--grad-teal);
+  border-radius: 4px;
+  transition: width .6s ease;
+}
+
+.streak-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(0,200,150,.07);
+  border: 1px solid rgba(0,200,150,.2);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}

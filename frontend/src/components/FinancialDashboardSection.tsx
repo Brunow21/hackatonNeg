@@ -7,6 +7,7 @@ import Alerts from './Alerts'
 import Recommendation from './Recommendation'
 import Simulator from './Simulator'
 import EducationalCards from './EducationalCards'
+import InvestmentStreakCard from './InvestmentStreakCard'
 
 interface Props {
   dashboard: DashboardData
@@ -17,6 +18,8 @@ export default function FinancialDashboardSection({ dashboard, userId }: Props) 
   return (
     <div>
       <KPICards summary={dashboard.summary} />
+
+      <InvestmentStreakCard />
 
       <div style={{ marginBottom: 24 }}>
         <div className="grid-2">

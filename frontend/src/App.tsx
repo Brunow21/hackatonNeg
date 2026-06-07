@@ -115,7 +115,6 @@ export default function App() {
           }}>
             <AgentHero coach={agentCoach} loading={agentLoading && !agentCoach} />
             <AgentChat coach={agentCoach} userId={selectedUserId} />
-            <EvidencePanel coach={agentCoach} />
 
             <DidacticPath />
 
@@ -126,6 +125,8 @@ export default function App() {
             </div>
 
             <FinancialDashboardSection dashboard={dashboard} userId={selectedUserId} />
+
+            <EvidencePanel coach={agentCoach} />
 
             <Endpoints />
           </div>
